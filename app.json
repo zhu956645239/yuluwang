@@ -1,0 +1,38 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "网页",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "image/on.png",
+        "iconPath": "image/off.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "image/on2.png",
+        "iconPath": "image/off2.png",
+        "pagePath": "pages/index/index",
+        "text": "书架"
+      },
+      {
+        "selectedIconPath": "image/on3.png",
+        "iconPath": "image/off3.png",
+        "pagePath": "pages/index/index",
+        "text": "我的参与"
+      }
+    ]
+  }
+ 
+}
