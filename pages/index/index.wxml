@@ -9,9 +9,9 @@
 
     <swiper-item>
      <text>书名：{{itemname.book}} 作者：{{itemname.author}} </text>
- 
-      <image src="{{itemname.imgurl}}" bindload="imageLoad"  style="height:{{0.9*imgheights[current]}}rpx;width:{{imgwidth*0.8}}rpx;"   />
-        
+  <view id="{{itemname.id}}" bindtap="seemore"> 
+      <image src="{{itemname.imgurl}}"  bindload="imageLoad"  style="height:{{0.9*imgheights[current]}}rpx;width:{{imgwidth*0.8}}rpx;"   />
+   </view>     
     </swiper-item>
   
    
