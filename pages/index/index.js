@@ -39,14 +39,7 @@ Page({
   onLoad: function (options) {
   
   },
-  seemore: function (e) {
-    id = e.currentTarget.id
-    console.log(id);
-
-    wx.navigateTo({
-      url:'../error/error?id'= id,
-    })
-  },
+   
    imageLoad: function (e) {
      
     //获取图片真实宽和高
