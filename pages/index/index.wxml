@@ -1,15 +1,24 @@
 
+
 <view class="content">
 <swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" 
+  vertical="{{vertical}}"
+  circular="{{circular}}">
+  <block wx:for="{{array}}" wx:for-item="itemname">
+
     <swiper-item>
-      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+     <text>书名：{{itemname.book}} 作者：{{itemname.author}} </text>
+ 
+      <image src="{{itemname.imgurl}}" bindload="imageLoad"  style="height:{{0.9*imgheights[current]}}rpx;width:{{imgwidth*0.8}}rpx;"   />
+        
     </swiper-item>
-  </block>
-</swiper>
-  <button bindtap='bindtest'>立即参与</button>
-</view >
+  
    
 
-  
+  </block>
+</swiper>
+ 
+</view > 
+ 
+

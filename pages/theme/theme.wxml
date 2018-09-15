@@ -1,0 +1,31 @@
+ <view class="page">
+    <view class="page__hd">
+ 
+        <text class="page__desc">选择创作主题</text>
+         <text bindtap="addNewPage" class="addpage">添加新主题</text>
+    </view>
+    <view class="page__bd">
+        <view class="section section_gap">
+
+
+<form bindsubmit="formSubmit" >
+
+  <radio-group name="radio-group" class="radio-group"  >
+                <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.value}}" checked="{{item.checked}}">
+                    <text>{{item.value}}</text>
+                </radio>
+            </radio-group>
+ <button  formType="submit">提交</button>
+</form>
+
+
+        </view>
+    </view>
+</view>
+<form bindsubmit="formSubmit2" bindreset='formReset' >
+<modal hidden="{{hidden}}" title="添加主题" confirm-text=" " cancel-text=" " bindcancel="cancel" bindconfirm="confirm"  no-cancel="{{nocancel}}">
+<textarea name="input" placeholder=" 输入您要添加的主题" />
+<button bindtap='showok' formType="submit"  >提交</button>
+</modal>
+
+  </form>

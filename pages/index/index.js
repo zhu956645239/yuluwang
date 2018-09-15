@@ -1,39 +1,70 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
+var wxMarkerData = [];
 Page({
   data: {
-    imgUrls: [
-      'http://img1.imgtn.bdimg.com/it/u=3044643234,1198181209&fm=26&gp=0.jpg',
-      'http://img5.imgtn.bdimg.com/it/u=1973831706,2304837641&fm=200&gp=0.jpg',
-      'http://img1.imgtn.bdimg.com/it/u=2090956807,3265651612&fm=26&gp=0.jpg'
+   
+    imgheights: [],
+    //图片宽度
+    imgwidth: 950,
+    //默认
+    current: 0,
+    array: [
+      { imgurl:'http://img62.ddimg.cn/digital/product/93/30/1900679330_ii_cover.jpg?version=a7a64ce2-b9ee-4ab2-ba08-867a6afc26e6555',
+      author:'陈忠实',
+      book:'白鹿原',
+      
+      },
+      
+      
+     { imgurl:'http://img62.ddimg.cn/digital/product/87/99/1900778799_ii_cover.jpg?version=a29dea98-4130-4640-9b7b-82bae194d862',
+       author: '林奕含',
+       book: '房思琪的初恋乐园',
+       
+      
+      },
+     { 
+      imgurl: 'http://img61.ddimg.cn/digital/product/38/77/1900973877_ii_cover.jpg?version=b3a902bd-5c0b-4b58-9dfb-1c7babe88d2f',
+      author:'大冰',
+      book:'我不',
+      
+      }
     ],
     indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000
+    autoplay: true,
+    interval: 3000,
+    duration: 1000,
+    vertical: false,
+    circular: true,
+
   },
-  bindtest: function () {
-    wx.request({
-      url: 'http://localhost:8080/JavaEP/servlet',
-      data: {
-        username: '001',
-        password: 'abc'
-      },
-      method: 'GET', 
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data);
-      },
-      fail: function (res) {
-        console.log(".....fail.....");
-      }
+  onLoad: function (options) {
+  
+  },
+   imageLoad: function (e) {
+     
+    //获取图片真实宽和高
+    var imgwidth = e.detail.width,
+      imgheight = e.detail.height,
+      //计算宽高比
+      ratio = imgwidth / imgheight;
+    //计算应该显示的高度值
+    var viewHeight = 750 / ratio;
+    var imgheight = viewHeight;
+    var imgheights = this.data.imgheights
+    //把每一张的图片高度记录到数组里
+    imgheights.push(imgheight)
+    this.setData({
+      imgheights: imgheights,
     })
   },
-  onLoad: function () {
-   
+  onPullDownRefresh: function() {
+    console.log("我刷新了")
+  },
+  onShareAppMessage: function() {
+    return {
+      title: '语录网',
+      desc: '让你既阅读又赚钱的小程序',
+      path: '/page/index'
+
+    }
   }
 })

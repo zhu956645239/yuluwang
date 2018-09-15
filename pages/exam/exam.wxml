@@ -1,0 +1,3 @@
+<!--pages/exam/exam.wxml-->
+<text>审核中，请稍后</text>
+<button bindtap='findex'>返回主页</button>

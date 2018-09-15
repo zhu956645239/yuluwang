@@ -1,0 +1,31 @@
+
+
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+ 
+ 
+  <view class="section">
+    <textarea name="input"adjust-position="true" class="yulutext" placeholder="请在此写下您的语录" >
+    </textarea>
+
+
+   <view class="userinfo">
+     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 立即登录 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+
+
+
+
+    <button bindtap="choose">选择图片</button>
+     <button  formType="submit">提交</button>
+    <button formType="reset">重写</button>
+   
+  </view>
+  
+   
+</form>
