@@ -1,0 +1,18 @@
+<!--pages/newbook/newbook.wxml-->
+<view >
+  最新发布id={{id}}...
+</view>
+<view class='history-table-wrap'>
+    <view class="table">
+      <view class="tr">
+          <view class="th th1">编号</view>
+          <view class="th th2">书名</view>
+          <view class="th th3">创建日期</view>
+      </view>
+      <view class="tr" wx:for="{{15}}">
+          <view class="td td1">{{id}}</view>
+          <view class="td td2">{{bookName}}</view>
+          <view class="td td3">{{createTime}}</view>
+      </view>
+    </view>
+ </view>

@@ -1,0 +1,6 @@
+<view>微信正在支付100元.....</view>
+
+<view>
+<button type="primary" class="write" bindtap='startWrite'>开始创作</button>
+</view>
+

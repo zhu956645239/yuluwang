@@ -1,0 +1,22 @@
+<view class="content">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical="{{vertical}}" circular="{{circular}}">
+    <block wx:for="{{array}}" wx:for-item="itemname">
+
+      <swiper-item>
+        <view class='text'>
+          <text>书名：{{itemname.book}}</text>
+        </view>
+        <view class='text'>
+          <text>作者：{{itemname.author}} </text>
+        </view>
+        <view bindtap='tab' id='{{itemname.ids}}'class = 'img'>
+          <image src="{{itemname.imgurl}}" bindload="imageLoad" style="height:{{0.9*imgheights[current]}}rpx;width:{{imgwidth*0.8}}rpx;" />
+        </view>
+      </swiper-item>
+
+
+
+    </block>
+  </swiper>
+
+</view>

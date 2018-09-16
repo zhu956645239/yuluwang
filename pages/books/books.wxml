@@ -1,0 +1,29 @@
+<view class='page_row' bindtap="suo">
+  <view class="search">
+    <view class="df search_arr">
+      <icon class="searchcion" size='20' type='search'></icon>
+      <input class="" disabled placeholder="请输入关键字" value="{{searchValue}}" />
+    </view>
+  </view>
+  <view class='sousuo'>搜索</view>
+</view>
+<block wx:for="{{array}}">
+  <view class="movie">
+
+    <view class="pic">
+      <image src="{{item.imageurl}}" mode="aspectFit"></image>
+    </view>
+
+    <view class="movie-info">
+      <view class="base-info">
+        <text>书名：{{item.bookname}} \n 作者：{{item.author}}\n出版日期：{{item.createtime}}</text>
+
+
+      </view>
+      <progress percent="{{item.percent}}" active show-info />
+    </view>
+
+  </view>
+  <button class="canyu" bindtap="bindtest">立即参与</button>
+
+</block>

@@ -1,0 +1,3 @@
+<!--pages/error/error.wxml-->
+<text>服务器错误，请联系运营商</text>
+<button bindtap='findex'>返回主页</button>
