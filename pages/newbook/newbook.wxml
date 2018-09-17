@@ -8,11 +8,16 @@
           <view class="th th1">编号</view>
           <view class="th th2">书名</view>
           <view class="th th3">创建日期</view>
+           <view class="th th4">图片</view>
       </view>
-      <view class="tr" wx:for="{{15}}">
+      <view class="tr"  >
           <view class="td td1">{{id}}</view>
           <view class="td td2">{{bookName}}</view>
           <view class="td td3">{{createTime}}</view>
+          <view class="td td4">
+          <image style="width:50px;height:100px" src="{{photo}}"></image>
+          </view>
+        
       </view>
     </view>
  </view>

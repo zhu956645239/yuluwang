@@ -8,24 +8,34 @@
     <textarea name="input"adjust-position="true" class="yulutext" placeholder="请在此写下您的语录" >
     </textarea>
 
-
+  <!-- 选择图片  -->
+<view class='choimg'>
+<view wx:for="{{imgsrc}}"  class='oneimg'>
+ <image  src="{{item}}"></image>
+</view>
+</view>
    <view class="userinfo">
-     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 立即登录 </button>
+     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">  </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
+ 
   </view>
 
 
-
-
+ 
 
     <button bindtap="choose">选择图片</button>
+        <button bindtap="uploadimg">上传图片</button>
      <button  formType="submit">提交</button>
     <button formType="reset">重写</button>
    
   </view>
-  
+ 
    
-</form>
+</form> 
+
+ 
+
+ 

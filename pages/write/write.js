@@ -40,11 +40,12 @@ Page({
     console.log('form发生了reset事件')
   },
     data: {
-      pics: []
+      pics: [],
+      imgsrc:[]
     },
     choose: function () {//这里是选取图片的方法
       var that = this,
-        　　　　　　pics = this.data.pics;
+        　pics = this.data.pics;
 
       wx.chooseImage({
         count: 9 - pics.length, // 最多可以选择的图片张数，默认9
@@ -52,10 +53,12 @@ Page({
         sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
         success: function (res) {
           var imgsrc = res.tempFilePaths;
-          consloe.log(imgsrc);
+          console.log(imgsrc);
           pics = pics.concat(imgsrc);
+          console.log(pics);
           that.setData({
-            pics: pics
+            pics: pics,
+            imgsrc: imgsrc
           });
         },
         fail: function () {
@@ -67,10 +70,13 @@ Page({
       })
 
     },
-    uploadimg: function () {//这里触发图片上传的方法
-      var pics = this.data.pics;
+    uploadimg: function (e) {//这里触发图片上传的方法
+      var that = this,
+        pics = this.data.pics;
+
+      console.log(pics);
       app.uploadimg({
-        url: '',//这里是你图片上传的接口
+        url: 'http://www.cchzyc.com/yulu/addphoto.do',//这里是你图片上传的接口
         path: pics//这里是选取的图片的地址数组
       });
     },

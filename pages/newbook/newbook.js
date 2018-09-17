@@ -2,22 +2,24 @@
 var id = []
 var bookName = []
 var createTime = []
+var photo = []
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    id = options.id//相当于request.getParameter
+    id = options.id //相当于request.getParameter
     console.log("-----" + id + "-----")
-    
+    var that = this
     //链接服务器
     /************************** *************************/
     wx.request({
@@ -33,18 +35,23 @@ Page({
         console.log(res.data);
         id = res.data.id;
         bookName = res.data.bookName;
-        createTime = res.data.createTime
-        console.log('id:' + id + ',bookName:' + bookName + ',createTime:' + createTime)
-      
+        createTime = res.data.createTime;
+        photo = res.data.photo
+        that.setData({
+          id: id,
+          bookName: bookName,
+          createTime: createTime,
+          photo: photo
+ })
+
       },
       fail: function() {
         console.log("失败")
       }
-      
+
     })
-   
   },
- /************************** **********************************/
+  /************************** **********************************/
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
