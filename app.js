@@ -35,6 +35,9 @@ App({
   },
   globalData: {
     userInfo: null
+    ,nickName:null,
+    theme:null,
+    quote:null
   },
  
 
@@ -59,12 +62,17 @@ App({
   },
  
    uploadimg :function (data){
+      
+     console.log("终极---------" + this.globalData.nickName)
+     console.log("终极---------" + this.globalData.theme)
+     console.log("终极---------" + this.globalData.quote)
+     console.log(data)
     var that = this,
     i=data.i ? data.i : 0,//当前上传的哪张图片
     success=data.success ? data.success : 0,//上传成功的个数
     fail=data.fail ? data.fail : 0;//上传失败的个数
     wx.uploadFile({
-      url: data.url,
+      url: data.url + "?nickName=" + this.globalData.nickName + "&theme=" + this.globalData.theme + "&quote=" + this.globalData.quote,
       filePath: data.path[i],
       name: 'photofile',//这里根据自己的实际情况改
       formData: that.success,//这里是上传图片时一起上传的数据

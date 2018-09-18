@@ -1,23 +1,46 @@
-<!--pages/newbook/newbook.wxml-->
-<view >
-  最新发布id={{id}}...
+<view class='headpic'>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical="{{vertical}}" circular="{{circular}}">
+    <block wx:for="3" wx:for-item="2">
+      <swiper-item>
+        <image src='{{photo}}' bindload="imageLoad" class='headpic' />
+      </swiper-item>
+    </block>
+  </swiper>
 </view>
-<view class='history-table-wrap'>
-    <view class="table">
-      <view class="tr">
-          <view class="th th1">编号</view>
-          <view class="th th2">书名</view>
-          <view class="th th3">创建日期</view>
-           <view class="th th4">图片</view>
-      </view>
-      <view class="tr"  >
-          <view class="td td1">{{id}}</view>
-          <view class="td td2">{{bookName}}</view>
-          <view class="td td3">{{createTime}}</view>
-          <view class="td td4">
-          <image style="width:50px;height:100px" src="{{photo}}"></image>
-          </view>
-        
-      </view>
-    </view>
- </view>
+<view class='title'>书名：{{bookName}}
+  <view>￥{{price}}</view>
+</view>
+
+<view class='discounts'>领券：学生认证/作者优惠
+
+</view>
+
+
+
+<view class='view'>
+  <view class='discounts'>发布时间{{createTime}}</view>
+</view>
+<view class='discounts'>
+  <view>数量</view>
+  <view class='discounts'>
+    <view class="discounts,hide{{showView?'show':''}}" bindtap="onChangeShowState">地址</view>
+    <view class="hide{{showView?'':'show'}}" bindtap="onChangeShowState">{{showView?'隐藏':'地址'}}</view>
+  </view>
+  <view class="hide{{showView?'show':''}}">
+    <text class="text">我是被显示被隐藏控件</text>
+  </view>
+  <view class='view'>本商品享受服务</view>
+</view>
+
+<!--<view class='view'>书店官网</view>-->
+<view class='discounts'>评论：</view>
+<view class='discounts'>猜你喜欢</view>
+<view class='discounts'>商品介绍/规格参数/售后保障
+  <view>编号：{{id}}</view>
+  <view>发布日期：{{createTime}}</view>
+  <view class='headpic'>
+    <image src='{{photo}}' class='pic' />
+  </view>
+  <button>购买</button>
+  <button>加入购物车</button>
+</view>

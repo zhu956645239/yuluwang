@@ -3,7 +3,7 @@ const app =getApp();
 Page({
    
   formSubmit: function (e) {
- 
+    app.globalData.quote = e.detail.value.input
     console.log('携带数据为：', e.detail.value)
     var that = this
     wx.request(
@@ -34,6 +34,7 @@ Page({
         }
 
     })
+    
 
    
       this.uploadimg()
@@ -88,8 +89,19 @@ Page({
   delephoto:function(){
  
   },
-  onLoad: function () {
- 
+
+
+
+  onLoad: function (options) {
+ var theme =options.theme
+ var nickName =options.nickName
+
+
+    console.log("write中的--"+theme)
+    console.log(nickName)
+    app.globalData.nickName = nickName
+    app.globalData.theme = theme
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

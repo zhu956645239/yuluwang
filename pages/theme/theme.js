@@ -1,4 +1,7 @@
 // pages/theme/theme.js
+var theme =[]
+var user =[]
+var nickName = []
 Page({
 
   /**
@@ -13,7 +16,8 @@ Page({
       { name: 'history', value: '历史', },
       { name: 'ethical', value: '伦理' },
     ],
-      
+    nickName:[],
+    theme: [],
     hidden: true,
     nocancel: false
   }, 
@@ -38,7 +42,7 @@ Page({
     })
   }  ,
   formSubmit: function (e) {
-
+var that =this 
     console.log('主题数据为：', e.detail.value)
     wx.request(
       {
@@ -55,12 +59,16 @@ Page({
         },
         success: function (res) {
           console.log(res.data)
-           
+         
         } 
 
       }),
+      //  e.detail.value.radiogroup 
+      
+    console.log('昵称：', nickName)
+    console.log('主题：', e.detail.value.radiogroup)
       wx.redirectTo({
-        url: '../write/write',
+        url: '../write/write?theme=' + e.detail.value.radiogroup + '&nickName=' + nickName ,
       })
 
  
@@ -108,7 +116,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    nickName = options.nickName
+    console.log(nickName)
 
+    this.setData({
+      nickName: nickName
+    });
   },
 
   /**
