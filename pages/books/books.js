@@ -66,7 +66,7 @@ Page({
   },
   bindtest: function () {
     wx.navigateTo({
-      url: '../write/write',
+      url: '../pay/pay',
     })
   }, 
   /**

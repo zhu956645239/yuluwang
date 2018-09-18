@@ -1,11 +1,11 @@
 const app =getApp();
-
+ 
 Page({
    
   formSubmit: function (e) {
  
     console.log('携带数据为：', e.detail.value)
-   
+    var that = this
     wx.request(
       {
         url: 'http://www.cchzyc.com/yulu/getYuLuText.do',  
@@ -20,7 +20,7 @@ Page({
         'content-type': 'application/json' 
       },
       success: function (res) {
-        console.log(res.data)
+        console.log("后台数据"+res.data)
         if(res.data=='收到'){
           wx.redirectTo   ({
             url: '../exam/exam',
@@ -34,6 +34,10 @@ Page({
         }
 
     })
+
+   
+      this.uploadimg()
+    
 
   },
   formReset: function () {
@@ -80,6 +84,10 @@ Page({
         path: pics//这里是选取的图片的地址数组
       });
     },
+
+  delephoto:function(){
+ 
+  },
   onLoad: function () {
  
     if (app.globalData.userInfo) {

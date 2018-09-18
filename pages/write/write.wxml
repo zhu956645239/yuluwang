@@ -10,7 +10,7 @@
 
   <!-- 选择图片  -->
 <view class='choimg'>
-<view wx:for="{{imgsrc}}"  class='oneimg'>
+<view wx:for="{{imgsrc}}" longtap ="delephoto" class='oneimg'>
  <image  src="{{item}}"></image>
 </view>
 </view>
@@ -27,7 +27,7 @@
  
 
     <button bindtap="choose">选择图片</button>
-        <button bindtap="uploadimg">上传图片</button>
+        <!-- <button bindtap="uploadimg">上传图片</button> -->
      <button  formType="submit">提交</button>
     <button formType="reset">重写</button>
    
