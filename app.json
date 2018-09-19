@@ -10,7 +10,8 @@
     "pages/error/error",
     "pages/mine/mine",
     "pages/theme/theme",
-    "pages/newbook/newbook"
+    "pages/newbook/newbook",
+    "pages/login/login"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

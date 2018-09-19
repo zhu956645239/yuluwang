@@ -1,9 +1,9 @@
 <view> {{userInfo.nickName}} 微信正在支付100元.....</view>
 
 <view>
-<navigator url="../theme/theme?nickName={{userInfo.nickName}}">
-<button type="primary" class="write" >开始创作</button>
-</navigator>
+ 
+<button type="primary" bindtap="startwrite" class="write" >开始创作</button>
+ 
 
 
 

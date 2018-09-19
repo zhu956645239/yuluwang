@@ -46,7 +46,15 @@ Page({
       })
     
     }
+
+
  
+  },
+  startwrite:function(){
+
+    wx.redirectTo({
+      url: "../theme/theme?nickName=" + this.data.userInfo.nickName
+    })
   },
    
   
@@ -65,7 +73,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+    console.log(" 后台运行"+this.data.userInfo.nickName)
   },
 
   /**

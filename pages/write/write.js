@@ -81,7 +81,7 @@ Page({
 
       console.log(pics);
       app.uploadimg({
-        url: 'http://www.cchzyc.com/yulu/addphoto.do',//这里是你图片上传的接口
+        url: 'http://www.cchzyc.com/yulu/getUserQuote.do',//这里是你图片上传的接口
         path: pics//这里是选取的图片的地址数组
       });
     },
