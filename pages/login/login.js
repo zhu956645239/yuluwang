@@ -34,7 +34,7 @@ Page({
         duration: 2000
       })
       wx.redirectTo({
-        url: '../pay/pay',
+        url: '../pay/pay?phone=' + this.data.phone+'&password='+this.data.password,
       })
     }
   }

@@ -10,14 +10,26 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    animationlist: []
+    animationlist: [],
+
+    name:[],
+    idcard:[]
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-    
+  onLoad: function (options) {
+    var  name =options.phone
+    var  idcard =options.password
+    this.setData({
+      name:name,
+      idcard:idcard
+    })
+
+   console.log(" pay的姓名"+name)
+    console.log("身份证"+idcard)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -53,7 +65,7 @@ Page({
   startwrite:function(){
 
     wx.redirectTo({
-      url: "../theme/theme?nickName=" + this.data.userInfo.nickName
+      url: "../theme/theme?nickName=" + this.data.userInfo.nickName + "&name=" + this.data.name + "&idcard=" + this.data.idcard
     })
   },
    

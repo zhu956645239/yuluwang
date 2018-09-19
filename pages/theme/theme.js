@@ -18,6 +18,9 @@ Page({
     ],
     nickName:[],
     theme: [],
+    name:[],
+    idcard:[],
+
     hidden: true,
     nocancel: false
   }, 
@@ -68,7 +71,7 @@ var that =this
     console.log('昵称：', nickName)
     console.log('主题：', e.detail.value.radiogroup)
       wx.redirectTo({
-        url: '../write/write?theme=' + e.detail.value.radiogroup + '&nickName=' + nickName ,
+        url: '../write/write?theme=' + e.detail.value.radiogroup + '&nickName=' + nickName + "&name=" + this.data.name + "&idcard=" + this.data.idcard ,
       })
 
  
@@ -116,11 +119,16 @@ var that =this
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     nickName = options.nickName
-    console.log(nickName)
-
+    var name = options.name
+    var idcard = options.idcard
+     
     this.setData({
-      nickName: nickName
+      nickName: nickName,
+      name:name,
+      idcard:idcard
+
     });
   },
 
