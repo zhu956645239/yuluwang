@@ -4,23 +4,32 @@ Page({
    
   formSubmit: function (e) {
     this.data.quote = e.detail.value.input
-    console.log("write中的主题--" + this.data.theme)
-    console.log("write中的昵称--" + this.data.nickName)
-    console.log("write中的姓名--" + this.data.name)
-    console.log("write中的身份证--" + this.data.idcard)
-    console.log("write中的语录--" + this.data.quote)
-   
+    var fasttheme = this.data.theme
+    var fastnickName=this.data.nickName
+    var fastname = this.data.name
+    var fastidcard = this.data.idcard
+    var fastquote = this.data.quote
+
+
+
+
+    console.log("write中的主题--" + fasttheme)
+    console.log("write中的昵称--" + fastnickName)
+    console.log("write中的姓名--" + fastname)
+    console.log("write中的身份证--" + fastidcard)
+    console.log("write中的语录--" + fastquote)
+   var that =this 
     wx.request(
       {
         url: 'http://www.cchzyc.com/yulu/addUserQuote.do',  
    data:{
-     theme: this.data.theme,
-     nickName: this.data.nickName,
-     name: this.data.name,
-     idcard: this.data.idcard,
-     quote: this.data.quote
+     theme: fasttheme,
+     nickName: fastnickName,
+     name: fastname,
+     idcard: fastidcard,
+     quote: fastquote
    },
-      method: 'Post',
+      method: 'Get',
       header: {
         'content-type': 'application/json' 
       },
@@ -111,7 +120,7 @@ Page({
     var idcard = options.idcard
   
 
-
+    app.globalData.idcard = idcard
     console.log("前一个页面的主题--"+theme)
     console.log("前一个页面的昵称--" + nickName)
     console.log("前一个页面的姓名--" + name)

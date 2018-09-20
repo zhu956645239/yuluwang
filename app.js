@@ -37,7 +37,7 @@ App({
 
 
     userInfo: null ,
-     
+    idcard:[],
     photoArray:[]
 
     
@@ -76,21 +76,43 @@ App({
       filePath: data.path[i],
       name: 'photofile',//这里根据自己的实际情况改
       formData: that.success,//这里是上传图片时一起上传的数据
-      success: (resp) => {
-
-         that.globalData.photoArray.concat(resp)
+   
+        success: function(resp) {
+          that.globalData.photoArray.push(resp.data)
          
+          console.log("这是后台传来的图片链接---------------")
+          console.log(resp.data)
+          console.log("这是后台传来的图片链接--------------")
+          console.log(that.globalData.photoArray)
         success++;//图片上传成功，图片上传成功的变量+1
        
         console.log(i);
         //这里可能有BUG，失败也会执行这里,所以这里应该是后台返回过来的状态码为成功时，这里的success才+1
       },
-      fail: (res) => {
+      fail: function (res)  {
         fail++;//图片上传失败，图片上传失败的变量+1
         console.log('fail:' + i + "fail:" + fail);
       },
-      complete: () => {
-        console.log("后台传来的图片链接"+that.globalData.photoArrayi);
+      complete: function(){
+        console.log("老子要完事了" + that.globalData.photoArray)
+        wx.request(
+          {
+            url: 'http://www.cchzyc.com/yulu/getPhotoArray.do',
+
+            data: {
+              idcard: that.globalData.idcard,
+              photoArray: that.globalData.photoArray
+ },
+            method: 'Get',
+            header: {
+              'content-type': 'application/json'
+            },
+            success: function (res) {
+              console.log(res.data)
+ }
+          }),
+
+      
         console.log(i);
         i++;//这个图片执行完上传后，开始上传下一张
         if (i == data.path.length) {   //当图片传完时，停止调用          

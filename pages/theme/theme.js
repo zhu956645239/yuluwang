@@ -9,12 +9,11 @@ Page({
    */
   data: {
     items: [
-      { name: 'education', value: '教育' , checked: 'true' },
-      { name: 'love', value: '爱情', },
-      { name: 'school', value: '校园' },
-      { name: 'game', value: '游戏' },
-      { name: 'history', value: '历史', },
-      { name: 'ethical', value: '伦理' },
+
+      { name: 'love', value: '绝地求生',  checked: 'true'},
+      { name: 'school', value: '唐门娇妻' },
+      { name: 'game', value: '极品教师' },
+   
     ],
     nickName:[],
     theme: [],
