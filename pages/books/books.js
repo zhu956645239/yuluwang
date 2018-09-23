@@ -9,29 +9,7 @@ Page({
     imgwidth: 950,
     //默认
     current: 0,
-    array:[
-      {
-        imageurl: "http://img3m9.ddimg.cn/35/0/25311959-1_l_2.jpg",
-        bookname: "天长地久",
-        author: "龙应台",
-        createtime: "2018",
-        percent:"20"
-      }, {
-        imageurl: "http://img3m6.ddimg.cn/96/35/1901075316-1_l_3.jpg",
-        bookname: "圣殿春秋(全3册)", 
-        author: "（英）肯福莱特",
-        createtime: "2018",
-        percent: 577/2000*100 
-      },
-      {
-        imageurl: "http://img3m0.ddimg.cn/21/28/23811600-1_l_1.jpg",
-        bookname: "工匠精神：向价值型",
-        author: "当当全国独家",
-        createtime: "2018",
-        percent: "50"
-      }
-
-    ]
+    array:[ ]
   
   },
 
@@ -39,6 +17,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    wx.request({
+      url: 'http://www.cchzyc.com/yulu/getAllBook.do',
+      method: 'Get',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res),
+        that.setData({
+          array: res.data
+        })
+
+      },
+      fail: function () {
+        console.log("失败")
+      }
+
+    })
+
+
+
   },
  
   imageLoad: function (e) {
@@ -64,16 +64,39 @@ Page({
   onReady: function () {
     
   },
-  bindtest: function () {
+  bindtest: function (e) {
+console.log(e.currentTarget.id )
+
+
+
+
     wx.navigateTo({
-      url: '../login/login',
+      url: '../write/write?bookID=' + e.currentTarget.id,
     })
   }, 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    var that = this;
+    wx.request({
+      url: 'http://www.cchzyc.com/yulu/getAllBook.do',
+      method: 'Get',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res),
+          that.setData({
+            array: res.data
+          })
+
+      },
+      fail: function () {
+        console.log("失败")
+      }
+
+    })
   },
 
   /**

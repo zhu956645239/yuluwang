@@ -10,16 +10,17 @@ Page({
   data: {
     items: [
 
-      { name: 'love', value: '绝地求生',  checked: 'true'},
-      { name: 'school', value: '唐门娇妻' },
-      { name: 'game', value: '极品教师' },
-   
-    ],
+      {  value: '爱情',  checked: 'true'},
+      {   value: '校园' },
+      {  value: '游戏' },
+      {  value: '历史' } 
+      ],
     nickName:[],
     theme: [],
     name:[],
     idcard:[],
-
+    avatarUrl:[],
+    bookID:[],
     hidden: true,
     nocancel: false
   }, 
@@ -70,9 +71,9 @@ var that =this
     console.log('昵称：', nickName)
     console.log('主题：', e.detail.value.radiogroup)
       wx.redirectTo({
-        url: '../write/write?theme=' + e.detail.value.radiogroup + '&nickName=' + nickName + "&name=" + this.data.name + "&idcard=" + this.data.idcard ,
+        url: '../write/write?theme=' + e.detail.value.radiogroup + '&nickName=' + nickName + "&name=" + this.data.name + "&idcard=" + this.data.idcard + "&avatarUrl=" + this.data.avatarUrl + '&bookID=' + this.data.bookID ,
       })
-
+    
  
   },
   /*注：当点击提交时，先把值传到后台，再执行重置清空input，最后执行cancle关闭modal框*/
@@ -122,12 +123,16 @@ var that =this
     nickName = options.nickName
     var name = options.name
     var idcard = options.idcard
-     
+    var avatarUrl = options.avatarUrl
+    var bookID = options.bookID
+    
+    console.log(avatarUrl)
     this.setData({
       nickName: nickName,
       name:name,
-      idcard:idcard
-
+      idcard: idcard,
+      bookID: bookID,
+avatarUrl: avatarUrl
     });
   },
 

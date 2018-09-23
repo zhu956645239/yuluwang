@@ -1,9 +1,14 @@
 Page({
   data: {
     phone: '',
-    password: ''
+    password: '',
+    bookID:''
   },
-
+onLoad:function(e){
+  this.setData({
+    bookID: e.bookID
+  })
+},
   // 获取输入账号
   phoneInput: function (e) {
     this.setData({
@@ -34,7 +39,7 @@ Page({
         duration: 2000
       })
       wx.redirectTo({
-        url: '../pay/pay?phone=' + this.data.phone+'&password='+this.data.password,
+        url: '../pay/pay?phone=' + this.data.phone + '&password=' + this.data.password + '&bookID=' + this.data.bookID,
       })
     }
   }

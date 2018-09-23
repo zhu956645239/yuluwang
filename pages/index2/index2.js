@@ -16,33 +16,40 @@ Page({
       1, 2, 3
     ],
     animationlistyet: [],
-    cardInfoList: [
-      {
-        id: 1,
-        cardUrl: 'http://img3m0.ddimg.cn/4/5/25249360-1_h_8.jpg',
-        cardInfo: {
-          cardTitle: '',
-          cardInfoMes: ['', '', '']
-        }
-      }, {
-        id: 2,
-        cardUrl: 'http://img3m7.ddimg.cn/74/36/1237617587-1_h_11.jpg',
-        cardInfo: {
-          cardTitle: '',
-          cardInfoMes: ['', '', '']
-        }
-      }, {
-        id: 3,
-        cardUrl: 'http://img3m2.ddimg.cn/9/35/24172542-1_h_2.jpg',
-        cardInfo: {
-          cardTitle: '',
-          cardInfoMes: ['', '', '']
-        }
-      }
-    ]
+    array: [ ]
   },
  
   onLoad: function () {
+
+    var that = this;
+    wx.request({
+      url: 'http://www.cchzyc.com/yulu/getBook.do',
+      // data: {
+      //   id: id,
+      // },
+      method: 'Get',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.errMsg);
+
+        // bookName = res.data.bookName;
+        // createTime = res.data.createTime;
+        // // photo = res.data.photo
+        that.setData({
+          array: res.data
+        })
+
+      },
+      fail: function () {
+        console.log("失败")
+      }
+
+    })
+
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -68,7 +75,13 @@ Page({
           })
         }
       })
-    }
+    } 
+    var that = this;
+    //调用应用实例的方法获取全局数据
+    app.getUserInfo(function (userInfo) {
+      //更新数据
+      that.setData({ userInfo: userInfo });
+    });
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -79,7 +92,7 @@ Page({
     })
   },
   imageLoad: function (e) {
-   console.log('123') 
+ 
     //获取图片真实宽和高
     var imgwidth = e.detail.width,
       imgheight = e.detail.height,
@@ -173,15 +186,7 @@ Page({
     app.buyDetail = this.data.cardInfoList[e.target.id];
     wx.navigateTo({url: '../detail/detail'});
   },
-  onLoad: function () {
-    console.log('onLoad');
-    var that = this;
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      that.setData({userInfo: userInfo});
-    });
-  },
+ 
   /**
    * [微信小程序分享]
    * @return {[type]} [description]

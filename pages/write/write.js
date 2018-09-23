@@ -9,8 +9,9 @@ Page({
     var fastname = this.data.name
     var fastidcard = this.data.idcard
     var fastquote = this.data.quote
-
-
+    var fastavatarUrl = this.data.avatarUrl
+    var fastbookID = this.data.bookID
+    
 
 
     console.log("write中的主题--" + fasttheme)
@@ -18,6 +19,8 @@ Page({
     console.log("write中的姓名--" + fastname)
     console.log("write中的身份证--" + fastidcard)
     console.log("write中的语录--" + fastquote)
+    console.log("write中的图片--" + fastavatarUrl)
+    console.log("write中的bookid--" + fastbookID)
    var that =this 
     wx.request(
       {
@@ -27,15 +30,17 @@ Page({
      nickName: fastnickName,
      name: fastname,
      idcard: fastidcard,
-     quote: fastquote
+     quote: fastquote  , 
+      avatarUrl:fastavatarUrl,
+     bookID: fastbookID
    },
       method: 'Get',
       header: {
         'content-type': 'application/json' 
       },
       success: function (res) {
-        console.log("后台数据"+res.data)
-        if(res.data=='收到'){
+        console.log("后台数据·····"+res.data)
+        if (res.data =='getUserQuote.do后台语录收到'){
           wx.redirectTo   ({
             url: '../exam/exam',
           })
@@ -66,7 +71,9 @@ Page({
       quote:[],
       nickName:[],
       name:[]
-  ,   idcard:[]    
+  ,   idcard:[]  ,
+      avatarUrl:[]  
+      ,bookID:[]
 
     },
     choose: function () {//这里是选取图片的方法
@@ -118,18 +125,23 @@ Page({
    var nickName =options.nickName
    var name = options.name
     var idcard = options.idcard
-  
-
+    var avatarUrl = options.avatarUrl
+    var bookID = options.bookID
+    
     app.globalData.idcard = idcard
     console.log("前一个页面的主题--"+theme)
     console.log("前一个页面的昵称--" + nickName)
     console.log("前一个页面的姓名--" + name)
     console.log("前一个页面的身份证--" + idcard)
+    console.log("前一个页面的头像图片--" + avatarUrl)
+    console.log("前一个页面的bookid--" + bookID)
     this.setData({
       theme: theme ,
       nickName: nickName,
       name: name  ,
-      idcard: idcard  
+      idcard: idcard  ,
+      avatarUrl: avatarUrl,
+      bookID: bookID
     })
    
 

@@ -13,8 +13,8 @@ Page({
     animationlist: [],
 
     name:[],
-    idcard:[]
-    
+    idcard:[],
+    bookID:''
   },
 
   /**
@@ -23,13 +23,16 @@ Page({
   onLoad: function (options) {
     var  name =options.phone
     var  idcard =options.password
+    var bookID = options.bookID
     this.setData({
       name:name,
-      idcard:idcard
+      idcard:idcard,
+      bookID:bookID
     })
 
    console.log(" pay的姓名"+name)
     console.log("身份证"+idcard)
+    console.log("bookID" + bookID)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -65,7 +68,7 @@ Page({
   startwrite:function(){
 
     wx.redirectTo({
-      url: "../theme/theme?nickName=" + this.data.userInfo.nickName + "&name=" + this.data.name + "&idcard=" + this.data.idcard
+      url: "../theme/theme?nickName=" + this.data.userInfo.nickName + "&name=" + this.data.name + "&idcard=" + this.data.idcard + "&avatarUrl=" + this.data.userInfo.avatarUrl + '&bookID=' + this.data.bookID 
     })
   },
    

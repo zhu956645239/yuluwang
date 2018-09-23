@@ -7,23 +7,21 @@
   </view>
   <view class='sousuo'>搜索</view>
 </view>
+
+
+
 <block wx:for="{{array}}">
-  <view class="movie">
-
+  <view class="movie" >
     <view class="pic">
-      <image src="{{item.imageurl}}" mode="aspectFit"></image>
+      <image src="{{item.photo}}" mode="aspectFit"></image>
     </view>
-
     <view class="movie-info">
       <view class="base-info">
-        <text>书名：{{item.bookname}} \n 作者：{{item.author}}\n出版日期：{{item.createtime}}</text>
-
-
+        <text>书名：{{item.bookName}} {{item.id}}\n  创作日期：{{item.createTime}}</text>
       </view>
-      <progress percent="{{item.percent}}" active show-info />
+      <progress percent="{{item.progress}}"  show-info />
     </view>
-
   </view>
-  <button class="canyu" bindtap="bindtest">立即参与</button>
-
+  <button class="canyu" id='{{item.id}}' bindtap="bindtest">立即参与</button>
 </block>
+

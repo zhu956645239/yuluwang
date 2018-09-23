@@ -31,7 +31,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res);
+        console.log(res.errMsg);
         
         // bookName = res.data.bookName;
         // createTime = res.data.createTime;
