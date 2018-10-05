@@ -13,7 +13,7 @@ Page({
     current: 0,
     isAnimation: false,
     zindex: [
-      1, 2, 3
+      1, 2, 3,4
     ],
     animationlistyet: [],
     array: [ ]
@@ -32,7 +32,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.errMsg);
+        
 
         // bookName = res.data.bookName;
         // createTime = res.data.createTime;
@@ -82,9 +82,10 @@ Page({
       //更新数据
       that.setData({ userInfo: userInfo });
     });
+    
   },
   getUserInfo: function (e) {
-    console.log(e)
+   
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -110,7 +111,7 @@ Page({
   },
   //事件处理函数
   slidethis: function (e) {
-    console.log(e);
+    
     var self = this;
     if (this.data.isAnimation) {
       return false;

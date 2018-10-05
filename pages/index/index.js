@@ -3,7 +3,6 @@ var id = [];
 var array=[];
 Page({
   data: {
-
     imgheights: [],
     //图片宽度
     imgwidth: 700,
@@ -20,7 +19,7 @@ Page({
 
   },
   onLoad: function() {
-    var that = this;
+  var that = this;
     wx.request({
       url: 'http://www.cchzyc.com/yulu/getBook.do',
       // data: {
@@ -54,8 +53,9 @@ Page({
     wx.navigateTo({
       url: '../newbook/newbook?id=' + id,
     })
-  },
-  imageLoad: function(e) {
+  }
+  ,
+  imageLoad: function (e) {
 
     //获取图片真实宽和高
     var imgwidth = e.detail.width,

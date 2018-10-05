@@ -65,13 +65,10 @@ Page({
     
   },
   bindtest: function (e) {
-console.log(e.currentTarget.id )
-
-
-
-
+   console.log(e.currentTarget.id )
+    console.log(e.currentTarget)
     wx.navigateTo({
-      url: '../write/write?bookID=' + e.currentTarget.id,
+      url: '../login/login?bookID=' + e.currentTarget.id,
     })
   }, 
   /**

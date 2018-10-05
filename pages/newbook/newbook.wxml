@@ -2,7 +2,7 @@
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical="{{vertical}}" circular="{{circular}}">
     <block wx:for="3" wx:for-item="2">
       <swiper-item>
-        <image src='{{photo}}' bindload="imageLoad" class='headpic' />
+      <image src="{{photo}}"  class='pic' bindload="imageLoad" style="height:{{0.9*imgheights[current]}}rpx;width:{{imgwidth*0.8}}rpx;" />
       </swiper-item>
     </block>
   </swiper>
@@ -39,7 +39,7 @@
   <view>编号：{{id}}</view>
   <view>发布日期：{{createTime}}</view>
   <view class='headpic'>
-    <image src='{{photo}}' class='pic' />
+      <image src="{{photo}}"  class='pic' bindload="imageLoad" style="height:{{0.9*imgheights[current]}}rpx;width:{{imgwidth*0.8}}rpx;" />
   </view>
   <button>购买</button>
   <button>加入购物车</button>

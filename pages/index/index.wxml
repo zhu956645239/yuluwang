@@ -2,9 +2,9 @@
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical="{{vertical}}" circular="{{circular}}">
     <block wx:for="{{array}}" wx:for-item="itemname">
       <swiper-item>
-        <view class='text'>
-          <text>书名：{{itemname.bookName}}</text>
-        </view>
+         <view class='text'>
+          <text>《{{itemname.bookName}}》</text>
+        </view>  
         <view bindtap='tab' id='{{itemname.id}}'class = 'img'>
           <image src="{{itemname.photo}}" bindload="imageLoad" style="height:{{0.9*imgheights[current]}}rpx;width:{{imgwidth*0.8}}rpx;" />
         </view>
@@ -12,3 +12,5 @@
     </block>
   </swiper>
 </view>
+
+ 

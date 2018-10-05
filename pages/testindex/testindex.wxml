@@ -1,0 +1,88 @@
+ <view class="container">
+
+<!--                      顶部图片                -->
+ <view class="selection">
+ <swiper class="swphoto" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"   circular="{{circular}}">
+  <block wx:for="{{parray}}" wx:for-item="itemname">
+    <swiper-item>
+     <view id='{{itemname.id}}'class = 'img'>
+          <image src="{{itemname.swiperURL}}" bindload="imageLoad" style="height:{{imgheights[current]}}rpx;width:{{imgwidth}}rpx;" />
+        </view>
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+ <!-- bindtap='tab' -->
+
+
+
+<!--                       精品推荐                -->
+
+ <view class="selection">
+           <view class="header">
+             <text class="text-topic">精品推荐</text>
+              <text class='text-all'>全部精品</text>
+           </view>
+           
+ <view class='contain'>
+           <view class="contain-item"  wx:for="{{array}}"  wx:for-item="item">
+           <image bindtap='tab' id='{{item.id}}' src='{{item.photo}}'></image>
+
+           <view class='contant-item-text'>
+           <text >{{item.bookName}}</text>
+           </view>
+           </view>
+           
+</view>
+
+</view>
+
+
+
+<!--                        热门                  -->
+              <view class="selection">
+           <view class="header">
+             <text class="text-topic">热门图书</text>
+              <text class='text-all'>全部图书</text>
+           </view>
+
+                <view class="list-item" wx:for="{{array}}"  wx:for-item="item">
+           <view class="list-item-images">
+            <image src='{{item.photo}}'class="list-item-images-img"></image>  
+            <image class="avatar" src=' '></image>
+            </view>
+
+
+            <view class="list-item-text"> 
+                 <!-- 标题 -->
+                 <view class="list-item-text-title">
+                  
+              {{item.bookName}}
+                  
+                 </view>
+                 <!-- 内容 -->
+                  <view class="list-item-text-content">
+                  
+                       {{item.createtime}}
+                
+                 </view>
+            </view>
+
+
+                 </view>
+
+
+
+
+           </view>
+
+
+
+
+
+
+
+
+
+ </view>

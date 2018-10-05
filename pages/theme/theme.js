@@ -8,13 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items: [
-
-      {  value: '爱情',  checked: 'true'},
-      {   value: '校园' },
-      {  value: '游戏' },
-      {  value: '历史' } 
-      ],
+    items: [  ],
     nickName:[],
     theme: [],
     name:[],
@@ -47,25 +41,7 @@ Page({
   formSubmit: function (e) {
 var that =this 
     console.log('主题数据为：', e.detail.value)
-    wx.request(
-      {
-        url: 'http://www.cchzyc.com/yulu/getTheme.do',
-
-        data: {
-
-          theme: e.detail.value,
-
-        },
-        method: 'Get',
-        header: {
-          'content-type': 'application/json'
-        },
-        success: function (res) {
-          console.log(res.data)
-         
-        } 
-
-      }),
+  
       //  e.detail.value.radiogroup 
       
     console.log('昵称：', nickName)
@@ -79,7 +55,7 @@ var that =this
   /*注：当点击提交时，先把值传到后台，再执行重置清空input，最后执行cancle关闭modal框*/
    formSubmit2: function (e) {
 
-    console.log('创建主题数据为：', e.detail.value)
+     console.log('创建主题数据为：', e.detail.value.input)
 
      wx.request(
        {
@@ -87,7 +63,7 @@ var that =this
 
          data: {
 
-           newtheme: e.detail.value,
+           newtheme: e.detail.value.input,
 
          },
          method: 'Get',
@@ -134,6 +110,25 @@ var that =this
       bookID: bookID,
 avatarUrl: avatarUrl
     });
+var that =this 
+    wx.request(
+      {
+        url: 'http://www.cchzyc.com/yulu/getTheme.do',
+ 
+        method: 'Get',
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res.data)
+          that.setData({
+            items: res.data
+       
+          });
+        }
+
+      }) 
+
   },
 
   /**

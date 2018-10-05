@@ -17,11 +17,14 @@
     </view>
     <view class="movie-info">
       <view class="base-info">
-        <text>书名：{{item.bookName}} {{item.id}}\n  创作日期：{{item.createTime}}</text>
+        <text>书名：{{item.bookName}} {{item.id}}{{item.themeid}}\n  创作日期：{{item.createTime}}</text>
       </view>
       <progress percent="{{item.progress}}"  show-info />
+       <button class="canyu" id='{{item.id}}' name="{{item.themeid}}" bindtap="bindtest">立即参与</button>
+ 
     </view>
   </view>
-  <button class="canyu" id='{{item.id}}' bindtap="bindtest">立即参与</button>
+ 
+ 
 </block>
 

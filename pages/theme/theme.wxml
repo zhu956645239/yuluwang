@@ -10,8 +10,8 @@
 
 <form bindsubmit="formSubmit" >
   <radio-group name="radiogroup" class="radio-group"  >
-                <radio class="radio"   wx:for-items="{{items}}"  value="{{item.value}}" checked="{{item.checked}}">
-                    <text>{{item.value}}</text>
+                <radio class="radio"   wx:for-items="{{items}}"  value="{{item.theme}}" >
+                    <text>{{item.id}}、{{item.theme}}</text>
                 </radio>
             </radio-group>
  <button  formType="submit">提交</button>

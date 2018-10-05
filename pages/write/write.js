@@ -32,7 +32,8 @@ Page({
      idcard: fastidcard,
      quote: fastquote  , 
       avatarUrl:fastavatarUrl,
-     bookID: fastbookID
+     bookID: fastbookID,
+   
    },
       method: 'Get',
       header: {
@@ -40,11 +41,15 @@ Page({
       },
       success: function (res) {
         console.log("后台数据·····"+res.data)
-        if (res.data =='getUserQuote.do后台语录收到'){
+        app.globalData.uqid = res.data
+     
+
+
+
           wx.redirectTo   ({
             url: '../exam/exam',
           })
-        } 
+        
       },
         fail: function () {
           wx.redirectTo   ({
@@ -74,7 +79,7 @@ Page({
   ,   idcard:[]  ,
       avatarUrl:[]  
       ,bookID:[]
-
+     
     },
     choose: function () {//这里是选取图片的方法
       var that = this,
@@ -128,7 +133,7 @@ Page({
     var avatarUrl = options.avatarUrl
     var bookID = options.bookID
     
-    app.globalData.idcard = idcard
+ 
     console.log("前一个页面的主题--"+theme)
     console.log("前一个页面的昵称--" + nickName)
     console.log("前一个页面的姓名--" + name)

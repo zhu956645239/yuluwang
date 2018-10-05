@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/testindex/testindex",
     "pages/index/index",
     "pages/books/books",
     "pages/logs/logs",
@@ -8,11 +9,11 @@
     "pages/index2/index2",
     "pages/exam/exam",
     "pages/error/error",
+    "pages/login/login",
     "pages/mine/mine",
     "pages/theme/theme",
-    "pages/newbook/newbook",
-    "pages/login/login"
-  ],
+    "pages/newbook/newbook" 
+   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
@@ -26,22 +27,28 @@
     "borderStyle": "white",
     "list": [
       {
-        "selectedIconPath": "image/on.png",
-        "iconPath": "image/off.png",
-        "pagePath": "pages/index/index",
+        "selectedIconPath": "image/indexon.png",
+        "iconPath": "image/indexoff.png",
+        "pagePath": "pages/testindex/testindex",
         "text": "首页"
       },
       {
-        "selectedIconPath": "image/on2.png",
-        "iconPath": "image/off2.png",
+        "selectedIconPath": "image/bookon.png",
+        "iconPath": "image/bookoff.png",
         "pagePath": "pages/books/books",
-        "text": "书架"
+        "text": "分类"
       },
+        {
+          "selectedIconPath": "image/foundon.png",
+          "iconPath": "image/foundoff.png",
+          "pagePath": "pages/index/index",
+          "text": "发现"
+         },
       {
-        "selectedIconPath": "image/on3.png",
-        "iconPath": "image/off3.png",
+        "selectedIconPath": "image/myon.png",
+        "iconPath": "image/myoff.png",
         "pagePath": "pages/index2/index2",
-        "text": "我的参与"
+        "text": "我的"
       }
     ]
   },

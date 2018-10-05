@@ -15,7 +15,7 @@ onLoad:function(e){
       phone: e.detail.value
     })
   },
-
+  
   // 获取输入密码
   passwordInput: function (e) {
     this.setData({

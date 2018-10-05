@@ -10,10 +10,10 @@
 
 
   <view class="card_wrap">
-    <view bindtouchend="slidethis" animation="{{ animationlist[id] }}" class="card_item card{{ id + 1 }} zindex{{ zindex[(2-id)] }} " wx:for="{{ array }}"  wx:key="unique" wx:for-index="id" wx:for-item="item">
+    <view bindtouchend="slidethis" animation="{{ animationlist[id] }}" class="card_item card{{ id + 2 }} zindex{{ zindex[(4-id)] }} " wx:for="{{ array }}"  wx:key="unique" wx:for-index="id" wx:for-item="item">
     
       <!-- <view class="btn-cta buy_btn" id="{{ id }}" bindtap="buythis">订购本书</view> -->
-      <image bindload="imageLoad"  style="height:{{imgheights[current]}}rpx;width:{{imgwidth*0.8}}rpx;" src="{{ item.photo }}"></image>
+      <image bindload="imageLoad"  style="height:{{imgheights[current]*0.4}}rpx;width:{{imgwidth*0.4}}rpx;" src="{{ item.photo }}"></image>
     </view>
    
   </view>

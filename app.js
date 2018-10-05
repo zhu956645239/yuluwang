@@ -1,10 +1,16 @@
 //app.js
 App({
   onLaunch: function () {
+    wx.showToast({
+      title: '拼命加载中',
+      icon: 'loading',
+      duration: 1000
+    })
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+   
 
     // 登录
     wx.login({
@@ -37,7 +43,7 @@ App({
 
 
     userInfo: null ,
-    idcard:[],
+    uqid:[],
     photoArray:[]
 
     
@@ -95,22 +101,7 @@ App({
       },
       complete: function(){
         console.log("老子要完事了" + that.globalData.photoArray)
-        wx.request(
-          {
-            url: 'http://www.cchzyc.com/yulu/getPhotoArray.do',
-
-            data: {
-              idcard: that.globalData.idcard,
-              photoArray: that.globalData.photoArray
- },
-            method: 'Get',
-            header: {
-              'content-type': 'application/json'
-            },
-            success: function (res) {
-              console.log(res.data)
- }
-          }),
+   
 
       
         console.log(i);
@@ -118,6 +109,26 @@ App({
         if (i == data.path.length) {   //当图片传完时，停止调用          
           console.log('执行完毕');
           console.log('成功：' + success + " 失败：" + fail);
+
+          wx.request(
+            {
+              url: 'http://www.cchzyc.com/yulu/getPhotoArray.do',
+
+              data: {
+                uqid: that.globalData.uqid,
+                photoArray: that.globalData.photoArray
+              },
+              method: 'Get',
+              header: {
+                'content-type': 'application/json'
+              },
+              success: function (res) {
+
+              }
+            })
+
+
+
         } else {//若图片还没有传完，则继续调用函数
           console.log(i);
           data.i = i;
@@ -125,6 +136,8 @@ App({
           data.fail = fail;
           that.uploadimg(data);
         }
+        
+       
 
       }
     });

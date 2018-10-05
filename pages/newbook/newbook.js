@@ -16,9 +16,12 @@ Page({
     imgwidth: 700,
     //默认
     current: 0,
-
-
-    indicatorDots: false,
+    id: [],
+    bookName: [],
+    createTime: [],
+    photo: [],
+    price: [],
+   indicatorDots: true,
     autoplay: true,
     interval: 3000,
     duration: 1000,
@@ -56,7 +59,7 @@ Page({
     //链接服务器
     /************************** *************************/
     wx.request({
-      url: 'http://www.cchzyc.com/yulu/selectBooksInfoById.do',
+      url: 'http://www.cchzyc.com/yulu/getBooksInfoById.do',
       data: {
         id: id,
       },
@@ -105,7 +108,7 @@ Page({
     var viewHeight = 800 / ratio;
     var imgheight = viewHeight;
     var imgheights = this.data.imgheight;
-    console.log('~~~~~' + imgheights + '******')
+ 
     this.setData({
       imgheights: imgheight,
     })

@@ -43,10 +43,12 @@ page{
   font-size: 14px
 }
 .inputText {
-  flex: block;
+  width:60%;
+  height:10%;
+ 
   float: right;
   text-align: right;
-  margin-right: 22px;
+  margin-right: 10px;
   margin-top: 11px;
   color: #cccccc;
   font-size: 14px
